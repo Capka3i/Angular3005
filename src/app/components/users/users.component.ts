@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {subscribeTo} from "rxjs/internal-compatibility";
-import {UserService} from "../service/user.service";
-import {User} from "../Interface/User";
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../../service";
+import {User} from "../../Interface";
 
 @Component({
   selector: 'app-users',
@@ -11,9 +9,7 @@ import {User} from "../Interface/User";
 })
 export class UsersComponent implements OnInit {
 
-
-  users:User[];
-
+  users: User[];
 
   constructor(private userService: UserService) {
   }
@@ -22,5 +18,4 @@ export class UsersComponent implements OnInit {
     this.userService.getUser()
       .subscribe(value => this.users = value)
   }
-
 }
